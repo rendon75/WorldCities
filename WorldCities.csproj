@@ -23,6 +23,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.2.13" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,11 +34,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\angular-material.module.ts" />
     <None Remove="ClientApp\src\app\app-routing.module.ts" />
+    <None Remove="ClientApp\src\app\cities\cities.component.ts" />
+    <None Remove="ClientApp\src\app\cities\city.ts" />
+    <None Remove="ClientApp\src\app\countries\countries.component.ts" />
+    <None Remove="ClientApp\src\app\countries\country.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\angular-material.module.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\app-routing.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\cities\cities.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\cities\city.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\countries\countries.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\countries\country.ts" />
   </ItemGroup>
 
   <ItemGroup>
