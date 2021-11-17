@@ -37,8 +37,10 @@
     <None Remove="ClientApp\src\app\angular-material.module.ts" />
     <None Remove="ClientApp\src\app\app-routing.module.ts" />
     <None Remove="ClientApp\src\app\cities\cities.component.ts" />
+    <None Remove="ClientApp\src\app\cities\city-edit.component.ts" />
     <None Remove="ClientApp\src\app\cities\city.ts" />
     <None Remove="ClientApp\src\app\countries\countries.component.ts" />
+    <None Remove="ClientApp\src\app\countries\country-edit.component.ts" />
     <None Remove="ClientApp\src\app\countries\country.ts" />
   </ItemGroup>
 
@@ -46,8 +48,10 @@
     <TypeScriptCompile Include="ClientApp\src\app\angular-material.module.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\app-routing.module.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\cities\cities.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\cities\city-edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\cities\city.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\countries\countries.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\countries\country-edit.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\countries\country.ts" />
   </ItemGroup>
 
