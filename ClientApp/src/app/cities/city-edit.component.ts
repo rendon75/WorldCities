@@ -8,12 +8,15 @@ import { map } from 'rxjs/operators';
 import { City } from './City';
 import { Country } from './../countries/Country';
 
+import { BaseFormComponent } from '../base.form.component';
+
 @Component({
   selector: 'app-city-edit',
   templateUrl: './city-edit.component.html',
   styleUrls: ['./city-edit.component.css']
 })
-export class CityEditComponent implements OnInit {
+export class CityEditComponent
+  extends BaseFormComponent implements OnInit {
 
   // the view title
   title: string;
@@ -37,13 +40,20 @@ export class CityEditComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     @Inject('BASE_URL') private baseUrl: string) {
+      super();
   }
 
   ngOnInit() {
     this.form = new FormGroup({
       name: new FormControl('', Validators.required),
-      lat: new FormControl('', Validators.required),
-      lon: new FormControl('', Validators.required),
+      lat: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^[-]?[0-9]+(\.[0-9]{1,4})?$/)
+      ]),
+      lon: new FormControl('', [
+        Validators.required,
+        Validators.pattern(/^[-]?[0-9]+(\.[0-9]{1,4})?$/)
+      ]),
       countryId: new FormControl('', Validators.required)
     }, null, this.isDupeCity());
 
@@ -55,13 +65,13 @@ export class CityEditComponent implements OnInit {
     // load countries
     this.loadCountries();
 
-    // retrieve the ID from the 'id' parameter
-    var id = this.activatedRoute.snapshot.paramMap.get('id');
+    // retrieve the ID from the 'id'
+    this.id = +this.activatedRoute.snapshot.paramMap.get('id');
     if (this.id) {
       // EDIT MODE
 
       // fetch the city from the server
-      var url = this.baseUrl + "api/Cities/" + id;
+      var url = this.baseUrl + "api/Cities/" + this.id;
       this.http.get<City>(url).subscribe(result => {
         this.city = result;
         this.title = "Edit - " + this.city.name;
